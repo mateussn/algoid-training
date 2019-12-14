@@ -23,7 +23,6 @@ set stage = object(){
 	set bottom = h / 2;
 	 
 	//methods
-	
 	set draw = function(){
 		algo.goTo(0,0)
 		algo.rect.rect(w, h);
