@@ -1,6 +1,6 @@
 /* - BY MATEUS NOVAES 14.12.19 - ENJOY THIS */
 
-//This creates the EMOJI stamp
+// This creates the EMOJI stamp
 set player = algo.stamp.clone(array{
 {-1, -1,  0,  0,  0,  0, -1, -1},
 {-1,  0, 10, 10, 10, 10,  0, -1},
@@ -11,18 +11,18 @@ set player = algo.stamp.clone(array{
 {-1,  0,  2,  2,  2,  2,  0, -1},
 {-1, -1,  0,  0,  0,  0, -1, -1}}, 10);
 
-//Stage Object
+// Stage Object
 set stage = object(){
-	//atributes
-	set w = 480; //width
-	set h = 480; //height
+	// atributes
+	set w = 480; // width
+	set h = 480; // height
 	
 	set top = - h / 2;
 	set left = -w / 2;
 	set right = w / 2;
 	set bottom = h / 2;
 	 
-	//methods
+	// methods
 	set draw = function(){
 		algo.goTo(0,0)
 		algo.rect.rect(w, h);
@@ -37,18 +37,18 @@ set stage = object(){
 	};
 };
 
-//EMOJI Object
+// EMOJI Object
 set emoji = object(){
-	//atributes
+	// atributes
 	set stamp = player;
 	set x = 70;
 	set y = 70;
 	set velX = 15;
 	set velY = -15;
 	set hw = stamp.width/2; // half-width of stamp
-	set hh = stamp.width/2; //half-height of stamp
+	set hh = stamp.width/2; // half-height of stamp
 	
-	//methods 
+	// methods 
 	set draw = function(){
 		algo.goTo(x, y);
 		stamp.draw();
@@ -67,14 +67,14 @@ set emoji = object(){
 };
 set i = 0;
 
-//Some methods
+// Some methods
 set drawLevel = function(){
 	stage.draw();
 	emoji.draw();
 }
 
 set run = function(){
-	//algo.autoClear();
+	// algo.autoClear();
 	emoji.anim();
 	drawLevel();
 	i++;
