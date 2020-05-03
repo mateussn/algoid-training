@@ -13,6 +13,7 @@ set player = algo.stamp.clone(array{
 
 // Stage Object
 set stage = object(){
+	
 	// atributes
 	set w = 480; // width
 	set h = 480; // height
@@ -24,11 +25,13 @@ set stage = object(){
 	 
 	// methods
 	set draw = function(){
+		
 		algo.goTo(0,0)
 		algo.rect.rect(w, h);
 	};
 	
 	set collide = function(ball){
+		
 		if(ball.x + ball.hw >= right || ball.x - ball.hw <= left ){
 			ball.velX = -ball.velX;
 		}elseif(ball.y - ball.hh <= top || ball.y + ball.hh >= bottom ){
@@ -39,6 +42,7 @@ set stage = object(){
 
 // EMOJI Object
 set emoji = object(){
+
 	// atributes
 	set stamp = player;
 	set x = 70;
@@ -50,11 +54,13 @@ set emoji = object(){
 	
 	// methods 
 	set draw = function(){
+		
 		algo.goTo(x, y);
 		stamp.draw();
 	};
 	
 	set anim = function(){
+		
 		x += velX;
 		y += velY;	
 		stage.collide(emoji);
@@ -63,23 +69,25 @@ set emoji = object(){
 	set setter = function(val){
 		velX = velX + val;
 	}
-	
 };
+
 set i = 0;
 
 // Some methods
 set drawLevel = function(){
+	
 	stage.draw();
 	emoji.draw();
 }
 
 set run = function(){
+	
 	// algo.autoClear();
 	emoji.anim();
 	drawLevel();
 	i++;
 	if(i == 20){
-		//emoji.velX += velX + 1;
+		// emoji.velX += velX + 1;
 		emoji.setter(2);
 		i = 0;
 	}
@@ -87,11 +95,3 @@ set run = function(){
 
 util.pulse (run, 30);
 algo.hide();
-
-
-
-
-
-
-
-
